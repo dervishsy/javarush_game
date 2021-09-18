@@ -6,7 +6,6 @@ import com.game.entity.Profession;
 import com.game.entity.Race;
 import com.game.repository.PlayerRepository;
 import com.game.repository.PlayerSpecificationBuilder;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -24,7 +23,7 @@ public class PlayerService {
         this.playerRepository = playerRepository;
     }
 
-    public Player create(@NotNull Player player) {
+    public Player create(Player player) {
         player.setLevel(player.getCalculatedLevel());
         player.setUntilNextLevel(player.getCalculatedNextLevel());
         return playerRepository.saveAndFlush(player);
